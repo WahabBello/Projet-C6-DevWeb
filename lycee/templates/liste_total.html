@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}       
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="entry-header">
+                            <center> <h1>Liste Total</h1> </center> 
+                        </header><!-- .entry-header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+   <!--  Affichage des classe  -->     
+	<div class="container">
+        <br>
+        <div class="">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+	</div>
+		<center>
+			<table >
+					<tr >
+						<th > Id </th>
+						<th > Prenom </th> <th>Nom </th>
+						<th>Email</th><th>Number</th>
+						<th>Niveau</th><th>Classe</th>
+
+					</tr>
+					{% for user in users %}
+					<tr>
+						<td >{{ user.id }}</td>
+						<td> <a class="mr-2" href="{{ url_for('user', user_id=user.id) }}"><strong>{{ user.prenom }}</strong></a></td><td> {{ user.nom }} </td>
+						<td> {{ user.email }} </td><td>{{ user.number }} </td>
+						<td> {{ user.niveau }} </td><td> {{ user.classe }}</td>
+
+					</tr>
+					{% endfor %}
+			</table>
+			<br>
+			<div>
+			
+			    <a class="Create" href="{{ url_for('new_user') }}">Ajouter</a>			
+         
+            </div>
+		</center>		
+                 
+
+	
+{% endblock content %}
+

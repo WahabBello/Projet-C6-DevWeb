@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="entry-header">
+                            <center> <h1> User</h1> </center> 
+                        </header><!-- .entry-header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+
+
+        <br>
+		<center>
+			<table >
+					<tr >
+						<th > Id </th>
+						<th>Prenom </th><th>Nom</th>
+						<th>Email</th><th > Number </th>
+						<th>Niveau</th><th>Classe</th>
+					</tr>
+
+					<tr>
+						<td >{{ user.id }}</td>
+						<td> {{ user.prenom }} </td><td> {{ user.nom }} </td>
+						<td>{{ user.email }} </td><td >{{ user.number }}</td>
+						<td> {{ user.niveau}} </td><td> {{ user.classe }}</td>
+					</tr>
+
+			</table>
+			<br>
+				<div>
+
+					 <a class="Create" href="{{ url_for('update_user', user_id=user.id ) }}">Modifier</a> 
+					
+					<form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST">
+						<input class="Danger" type="submit" value="Delete">  
+					</form>							   
+				</div>
+		</center>		
+                 
+
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="entry-header">
+                            <center> <h1>CONTACT</h1> </center> 
+                        </header><!-- .entry-header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+
+    <div class="container">
+        <div class="row justify-content-between">
+
+            <div class="col-12 col-lg-6">
+                <div class="contact-form">
+                    <h3>Contact Form</h3>
+
+                    <form>
+                        <input type="text" placeholder="Votre Nom">
+                        <input type="email" placeholder="Votre Email">
+                        <input type="text" placeholder="Sujet">
+                        <textarea placeholder="Votre Message" rows="4"></textarea>
+                        <input type="submit" value="Envoi Message">
+                    </form>
+                </div><!-- .contact-form -->
+            </div><!-- .col -->
+
+            <div class="col-12 col-lg-6">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <p>Bienvenue sur le site de Lycée d'excellence.</p>
+
+                    <ul class="p-0 m-0">
+                        <li><span>Address::</span>Rond Point Sacre-Coeur</li>
+                        <li><span>Email:</span><a href="#">Lyceexcellence@gmail.com</a></li>
+                        <li><span>Phone:</span><a href="#">(+xxx) -33840-3060</a></li>
+                    </ul>
+                </div><!-- .contact-info -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+        
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="entry-header">
+                            <center> <h1>Gestion des classes</h1> </center> 
+                        </header><!-- .entry-header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+
+    <div class="container">
+        <br>
+          <!--  Affichage des messages  -->   
+        <div class="">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+   <!--  Affichage des classe  -->     
+          <article class="media content-sectiontotal">
+      
+            <div class="media-body">  
+              <h2><a class="article-title" href="{{ url_for('liste_total') }}"> Liste Total </a></h2>
+            </div>
+          </article> 
+       {% for classe in classes %}
+          <article class="media content-section">
+      
+            <div class="media-body">  
+              <h2><a class="article-title" href="{{ url_for('classe', classe_id=classe.id) }}"> {{ classe.title }} </a>
+            </div>
+          </article>     
+      {% endfor %}
+         <br>
+          <div>
+            <a class="Create" href="{{ url_for('new_classe') }}"> Create Classe </a>
+  
+          </div>
+   </div>
+ 
+
+    
+{% endblock content %}
